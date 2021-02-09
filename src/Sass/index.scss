@@ -1,0 +1,126 @@
+.navigation {
+  position: fixed;
+  top: 10px;
+  right: 30px;
+  transition: all 1s;
+  z-index: 300;
+
+  &__opener {
+    animation: comein 0.25s linear;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    transition: all 1s;
+
+    &:hover {
+      transform: scaleY(2);
+    }
+  }
+
+  &__closer {
+    animation: comein 1.5s linear;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    transition: all 1s;
+    &:hover {
+      box-shadow: 5px 5px 5px grey;
+    }
+  }
+
+  &__navbar {
+    height: 75vh;
+    width: 10vw;
+    z-index: 300;
+  }
+
+  &__navlist {
+    left: 50%;
+    list-style: none;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  &__item {
+    animation: swoosh 1s linear;
+    margin: 5rem auto;
+  }
+
+  &__links {
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: 300;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 1s;
+
+    &:hover {
+      box-shadow: 5px 5px 5px grey;
+      padding: 5px;
+    }
+  }
+}
+
+.cal {
+  height: 200vh;
+}
+
+@keyframes comein {
+  0% {
+    transform: translateX(1000%);
+  }
+  50% {
+    transform: translateX(500%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes swoosh {
+  0% {
+    transform: translateY(-1000%);
+  }
+  20% {
+    transform: translateY(-800%);
+  }
+  40% {
+    transform: translateY(-600%);
+  }
+  60% {
+    transform: translateY(-400%);
+  }
+  80% {
+    transform: translateY(-200%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0%);
+  }
+  50% {
+    transform: scale(100%);
+  }
+  100% {
+    transform: scale(0%);
+  }
+}
