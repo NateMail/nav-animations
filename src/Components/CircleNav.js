@@ -10,44 +10,81 @@ import {
 } from "react-icons/io";
 
 const CircleNav = () => {
-  const [open, setOpen] = useState("false");
+  const [open, setOpen] = useState("_start");
 
   return (
     <div className="circle_nav">
-      {open ? (
+      {open === "_open" ? (
         <div className="circle_nav__navbar">
-          <div onClick={() => setOpen(false)}>
-            <IoIosCloseCircleOutline className="circle_nav__closer" />
+          <div onClick={() => setOpen("_closed")}>
+            <IoIosCloseCircleOutline className={"circle_nav__closer" + open} />
 
             <div className="circle_nav__scale">
               <Link to="/" className="circle_nav__links">
-                <IoIosHome className="circle_nav__icon circle_nav__home" />
+                <IoIosHome
+                  className={"circle_nav__icon circle_nav__home" + open}
+                />
               </Link>
             </div>
 
             <div className="circle_nav__scale">
               <Link to="/vid" className="circle_nav__links">
-                <IoIosTv className="circle_nav__icon circle_nav__vid" />
+                <IoIosTv
+                  className={"circle_nav__icon circle_nav__vid" + open}
+                />
               </Link>
             </div>
 
             <div className="circle_nav__scale">
               <Link to="/cal" className="circle_nav__links">
-                <IoIosCalendar className="circle_nav__icon circle_nav__cal" />
+                <IoIosCalendar
+                  className={"circle_nav__icon circle_nav__cal" + open}
+                />
               </Link>
             </div>
 
             <div className="circle_nav__scale">
               <Link to="/register" className="circle_nav__links">
-                <IoMdPerson className="circle_nav__icon circle_nav__reg" />
+                <IoMdPerson
+                  className={"circle_nav__icon circle_nav__reg" + open}
+                />
               </Link>
             </div>
           </div>
         </div>
       ) : (
-        <div onClick={() => setOpen(true)}>
-          <IoIosMenu className="circle_nav__opener" />
-        </div>
+        <>
+          <div onClick={() => setOpen("_open")}>
+            <IoIosMenu className={"circle_nav__opener" + open} />
+          </div>
+          <div className="circle_nav__scale">
+            <Link to="/" className="circle_nav__links">
+              <IoIosHome
+                className={"circle_nav__icon circle_nav__home" + open}
+              />
+            </Link>
+          </div>
+          <div className="circle_nav__scale">
+            <Link to="/vid" className="circle_nav__links">
+              <IoIosTv className={"circle_nav__icon circle_nav__vid" + open} />
+            </Link>
+          </div>
+          <div className="circle_nav__scale">
+            <Link to="/cal" className="circle_nav__links">
+              <IoIosCalendar
+                className={"circle_nav__icon circle_nav__cal" + open}
+              />
+            </Link>
+          </div>
+
+          <div className="circle_nav__scale">
+            <Link to="/register" className="circle_nav__links">
+              <IoMdPerson
+                className={"circle_nav__icon circle_nav__reg" + open}
+              />
+            </Link>
+          </div>
+        </>
       )}
     </div>
   );
